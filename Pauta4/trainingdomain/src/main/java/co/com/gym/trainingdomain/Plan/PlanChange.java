@@ -43,7 +43,7 @@ public class PlanChange extends EventChange {
             lesson.updateDayLesson(event.getDayLesson());
         });
 
-        
+
 
     }
 }

@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class AddedExcercise extends DomainEvent {
 
+    private final SectionId sectionId;
     private final ExcerciseId excerciseId;
     private final RepetitionsExcercise repetitionsExcercise;
     private final SeriesExcercise seriesExcercise;
@@ -13,10 +14,11 @@ public class AddedExcercise extends DomainEvent {
     private final BreakExcercise breakExcercise;
     private final Name name;
 
-    public AddedExcercise(ExcerciseId excerciseId, RepetitionsExcercise repetitionsExcercise,
+    public AddedExcercise(SectionId sectionId, ExcerciseId excerciseId, RepetitionsExcercise repetitionsExcercise,
                           SeriesExcercise seriesExcercise, Description description,
                           WeighExcercise weighExcercise, BreakExcercise breakExcercise, Name name) {
         super("trainingdomain.routine.addedexcercise");
+        this.sectionId = sectionId;
         this.excerciseId = excerciseId;
         this.repetitionsExcercise = repetitionsExcercise;
         this.seriesExcercise = seriesExcercise;
@@ -24,6 +26,10 @@ public class AddedExcercise extends DomainEvent {
         this.weighExcercise = weighExcercise;
         this.breakExcercise = breakExcercise;
         this.name = name;
+    }
+
+    public SectionId getSectionId() {
+        return sectionId;
     }
 
     public ExcerciseId getExcerciseId() {

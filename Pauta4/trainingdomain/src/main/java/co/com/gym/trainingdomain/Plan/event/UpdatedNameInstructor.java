@@ -1,6 +1,5 @@
 package co.com.gym.trainingdomain.Plan.event;
 
-import co.com.gym.trainingdomain.Plan.Instructor;
 import co.com.gym.trainingdomain.Plan.value.InstructorId;
 import co.com.gym.trainingdomain.Plan.value.Name;
 import co.com.sofka.domain.generic.DomainEvent;

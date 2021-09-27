@@ -63,44 +63,44 @@ public class Routine extends AggregateEvent<RoutineId> {
         appendChange(new UpdatedDaySection(sectionId, daySection)).apply();
     }
 
-    public void addExcercise(ExcerciseId excerciseId, RepetitionsExcercise repetitionsExcercise, SeriesExcercise seriesExcercise,
+    public void addExcercise(SectionId sectionId, RepetitionsExcercise repetitionsExcercise, SeriesExcercise seriesExcercise,
                              Description description, WeighExcercise weighExcercise, BreakExcercise breakExcercise, Name name){
-        Objects.requireNonNull(excerciseId);
+
         Objects.requireNonNull(repetitionsExcercise);
         Objects.requireNonNull(seriesExcercise);
         Objects.requireNonNull(description);
         Objects.requireNonNull(weighExcercise);
         Objects.requireNonNull(breakExcercise);
         Objects.requireNonNull(name);
-        appendChange(new AddedExcercise(excerciseId,repetitionsExcercise,seriesExcercise,description, weighExcercise,breakExcercise,
+        appendChange(new AddedExcercise(sectionId, new ExcerciseId(),repetitionsExcercise,seriesExcercise,description, weighExcercise,breakExcercise,
                 name)).apply();
     }
 
-    public void updateDescriptionExcercise(ExcerciseId excerciseId, Description description){
+    public void updateDescriptionExcercise(SectionId sectionId, ExcerciseId excerciseId, Description description){
         Objects.requireNonNull(description);
-        appendChange(new UpdatedDescriptionExcercise(excerciseId, description)).apply();
+        appendChange(new UpdatedDescriptionExcercise(sectionId, excerciseId, description)).apply();
     }
 
-    public void updateNameExcercise(ExcerciseId excerciseId, Name name){
+    public void updateNameExcercise(SectionId sectionId, ExcerciseId excerciseId, Name name){
         Objects.requireNonNull(name);
-        appendChange(new UpdatedNameExcercise(excerciseId, name)).apply();
+        appendChange(new UpdatedNameExcercise(sectionId, excerciseId, name)).apply();
     }
-    public void updateRepetitionsExcercise(ExcerciseId excerciseId, RepetitionsExcercise repetitionsExcercise){
+    public void updateRepetitionsExcercise(SectionId sectionId, ExcerciseId excerciseId, RepetitionsExcercise repetitionsExcercise){
         Objects.requireNonNull(repetitionsExcercise);
-        appendChange(new UpdatedRepetitionExcercise(excerciseId,repetitionsExcercise)).apply();
+        appendChange(new UpdatedRepetitionExcercise(sectionId, excerciseId,repetitionsExcercise)).apply();
     }
-    public void updateSeriesExcercise(ExcerciseId excerciseId, SeriesExcercise seriesExcercise){
+    public void updateSeriesExcercise(SectionId sectionId, ExcerciseId excerciseId, SeriesExcercise seriesExcercise){
         Objects.requireNonNull(seriesExcercise);
-        appendChange(new UpdatedSeriesExcercise(excerciseId, seriesExcercise)).apply();
+        appendChange(new UpdatedSeriesExcercise(sectionId, excerciseId, seriesExcercise)).apply();
     }
 
-    public void updateWeighsExcercise(ExcerciseId excerciseId, WeighExcercise weighExcercise){
+    public void updateWeighsExcercise(SectionId sectionId, ExcerciseId excerciseId, WeighExcercise weighExcercise){
         Objects.requireNonNull(weighExcercise);
-        appendChange(new UpdatedWeighExcercise(excerciseId, weighExcercise)).apply();
+        appendChange(new UpdatedWeighExcercise(sectionId, excerciseId, weighExcercise)).apply();
     }
-    public void updateBreakExcersice(ExcerciseId excerciseId, BreakExcercise breakExcercise){
+    public void updateBreakExcersice(SectionId sectionId, ExcerciseId excerciseId, BreakExcercise breakExcercise){
         Objects.requireNonNull(breakExcercise);
-        appendChange(new UpdatedBreakExcercise(excerciseId, breakExcercise)).apply();
+        appendChange(new UpdatedBreakExcercise(sectionId, excerciseId, breakExcercise)).apply();
     }
 
     protected Optional<Section> getSectionById(SectionId sectionId){

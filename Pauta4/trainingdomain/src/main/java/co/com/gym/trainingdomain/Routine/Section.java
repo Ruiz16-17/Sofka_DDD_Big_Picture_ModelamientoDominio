@@ -1,11 +1,13 @@
 package co.com.gym.trainingdomain.Routine;
 
 import co.com.gym.trainingdomain.Routine.value.DaySection;
+import co.com.gym.trainingdomain.Routine.value.ExcerciseId;
 import co.com.gym.trainingdomain.Routine.value.NameMuscleGroupSection;
 import co.com.gym.trainingdomain.Routine.value.SectionId;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Section extends Entity<SectionId> {
@@ -27,6 +29,19 @@ public class Section extends Entity<SectionId> {
 
     public void updateDay(DaySection daySection) {
         this.daySection = Objects.requireNonNull(daySection);
+    }
+
+    public void addExcerciseSection(Excercise excercise){
+        this.excerciseSet.add(Objects.requireNonNull(excercise));
+    }
+
+    protected Optional<Excercise> getExcercisetById(ExcerciseId excerciseId){
+
+        return ExcerciseSet().stream()
+                .filter(excercise -> excercise
+                        .identity()
+                        .equals(excerciseId))
+                .findFirst();
     }
 
     public DaySection DaySection() {
