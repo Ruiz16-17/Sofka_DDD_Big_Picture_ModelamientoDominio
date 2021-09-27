@@ -1,6 +1,6 @@
-package co.com.gym.trainingdomain.customer.events;
+package co.com.gym.trainingdomain.Routine.events;
 
-import co.com.gym.trainingdomain.customer.value.Name;
+import co.com.gym.trainingdomain.Routine.value.Name;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class UpdatedName extends DomainEvent {
@@ -8,7 +8,7 @@ public class UpdatedName extends DomainEvent {
     private final Name name;
 
     public UpdatedName(Name name) {
-        super("sofka.customer.updatedname");
+        super("trainingdomain.routine.updatedname");
         this.name = name;
     }
 

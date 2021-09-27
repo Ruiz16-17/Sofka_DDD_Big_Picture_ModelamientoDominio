@@ -41,15 +41,6 @@ public class Customer extends AggregateEvent<CustomerId> {
         Objects.requireNonNull(name);
         appendChange(new AddedFeeding(entityId,quantity,day,name)).apply();
     }
-    /*
-    public void removeFeeding(FeedingId entityId, Quantity quantity, Day day, Name name){
-        Objects.requireNonNull(entityId);
-        Objects.requireNonNull(quantity);
-        Objects.requireNonNull(day);
-        Objects.requireNonNull(name);
-        appendChange(new AddedFeeding(entityId,quantity,day,name)).apply();
-    }
-    */
 
     public void assingRoutine(RoutineId routineId){
         Objects.requireNonNull(routineId);
