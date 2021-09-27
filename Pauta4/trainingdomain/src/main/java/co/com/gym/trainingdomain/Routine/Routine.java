@@ -1,19 +1,21 @@
 package co.com.gym.trainingdomain.Routine;
 
-import co.com.gym.trainingdomain.Routine.events.*;
+import co.com.gym.trainingdomain.Routine.event.*;
 import co.com.gym.trainingdomain.Routine.value.*;
+import co.com.gym.trainingdomain.Routine.value.SectionId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Routine extends AggregateEvent<RoutineId> {
 
     protected Name name;
     protected Description description;
-    protected Set<SectionId> sectionIdSet;
+    protected Set<Section> sectionSet;
 
 
     public Routine(RoutineId entityId, Name name, Description description) {
@@ -21,7 +23,7 @@ public class Routine extends AggregateEvent<RoutineId> {
         appendChange(new CreatedRoutine(name, description)).apply();
     }
 
-    public Routine(RoutineId entityId){
+    private Routine(RoutineId entityId){
         super(entityId);
         subscribe(new RoutineChange(this));
     }
@@ -101,15 +103,25 @@ public class Routine extends AggregateEvent<RoutineId> {
         appendChange(new UpdatedBreakExcercise(excerciseId, breakExcercise)).apply();
     }
 
-    public Name Name() {
+    protected Optional<Section> getSectionById(SectionId sectionId){
+
+        return sectionSet()
+                .stream()
+                .filter(section -> section
+                        .identity()
+                        .equals(sectionId))
+                .findFirst();
+    }
+
+    public Name name() {
         return name;
     }
 
-    public Description Description() {
+    public Description description() {
         return description;
     }
 
-    public Set<SectionId> SectionIdSet() {
-        return sectionIdSet;
+    public Set<Section> sectionSet() {
+        return sectionSet;
     }
 }

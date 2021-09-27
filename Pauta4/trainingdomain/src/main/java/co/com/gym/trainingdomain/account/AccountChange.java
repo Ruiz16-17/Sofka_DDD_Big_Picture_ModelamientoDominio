@@ -1,9 +1,8 @@
 package co.com.gym.trainingdomain.account;
 
-import co.com.gym.trainingdomain.account.events.CreatedAccount;
-import co.com.gym.trainingdomain.account.events.UpdatedEmail;
-import co.com.gym.trainingdomain.account.events.UpdatedName;
-import co.com.gym.trainingdomain.customer.events.*;
+import co.com.gym.trainingdomain.account.event.CreatedAccount;
+import co.com.gym.trainingdomain.account.event.UpdatedEmail;
+import co.com.gym.trainingdomain.account.event.UpdatedName;
 import co.com.sofka.domain.generic.EventChange;
 
 public class AccountChange extends EventChange {

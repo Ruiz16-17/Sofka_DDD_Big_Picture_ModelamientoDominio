@@ -1,6 +1,6 @@
 package co.com.gym.trainingdomain.customer;
 
-import co.com.gym.trainingdomain.customer.events.*;
+import co.com.gym.trainingdomain.customer.event.*;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;

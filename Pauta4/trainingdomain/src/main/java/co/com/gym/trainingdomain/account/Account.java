@@ -1,7 +1,7 @@
 package co.com.gym.trainingdomain.account;
 
-import co.com.gym.trainingdomain.account.events.UpdatedEmail;
-import co.com.gym.trainingdomain.account.events.UpdatedName;
+import co.com.gym.trainingdomain.account.event.UpdatedEmail;
+import co.com.gym.trainingdomain.account.event.UpdatedName;
 import co.com.gym.trainingdomain.account.value.AccountId;
 import co.com.gym.trainingdomain.account.value.Email;
 import co.com.gym.trainingdomain.account.value.Name;

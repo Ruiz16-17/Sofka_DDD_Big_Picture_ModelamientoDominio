@@ -1,6 +1,6 @@
 package co.com.gym.trainingdomain.customer;
 
-import co.com.gym.trainingdomain.customer.events.*;
+import co.com.gym.trainingdomain.customer.event.*;
 import co.com.gym.trainingdomain.customer.value.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
